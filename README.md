@@ -22,14 +22,13 @@
 ## 🗄 Table of Contents
 - [The Goal](#problem_statement)
 - [Setup](#idea)
-- [Downloading The Prerequisites](#limitations)
-- [Cloning The Repo](#future_scope)
-- [Loading the Models](#getting_started)
-- [For Analysis](#usage)
-- [Running the Models](#tech_stack)
-- [MCD Risk Model 1](../CONTRIBUTING.md)
+- [Downloading The Prerequisites](#pre)
+- [Cloning The Repo](#cloning)
+- [Loading the Models](#loading)
+- [For Analysis](#analysis)
+- [Running the Models](#running)
+- [MCD Risk Model 1](model1)
 - [Authors](#authors)
-- [Acknowledgments](#acknowledgments)
 
 ## Goal of the Risk Tool: <a name = "Goal"></a>
 Goal of the tool is to display risk and allow users to double click on visually evaluating risk.
