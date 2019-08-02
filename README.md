@@ -32,6 +32,9 @@
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 
+## Goal of Risk Tool: <a name = "Goal"></a>
+Goal of the tool is to display risk and allow users to double click on visually evaluating risk.
+
 ## 🧐 Setup: <a name = "setup"></a>
 If you would like to install and use this tool on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
 
