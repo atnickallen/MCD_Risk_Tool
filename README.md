@@ -15,19 +15,19 @@
 
 ---
 
-<p align="center"> The goal of this tool is to display the collateral risk and allow users to double click on visually evaluating risk.
+<p align="center"> Analyzing different collateral type risk with models
     <br> 
 </p>
 
 ## 📝 Table of Contents
-- [Problem Statement](#problem_statement)
-- [Idea / Solution](#idea)
-- [Dependencies / Limitations](#limitations)
-- [Future Scope](#future_scope)
-- [Setting up a local environment](#getting_started)
-- [Usage](#usage)
-- [Technology Stack](#tech_stack)
-- [Contributing](../CONTRIBUTING.md)
+- [Goal](#problem_statement)
+- [Setup](#idea)
+- [Downloading The Prerequisites](#limitations)
+- [Cloning The Repo](#future_scope)
+- [Loading the Models](#getting_started)
+- [For Analysis](#usage)
+- [Running the Models](#tech_stack)
+- [MCD Risk Model 1](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 
@@ -79,7 +79,7 @@ python3 mcd_risk_model_1.py
 python3 mcd_risk_model_2.py
 ```
 
-### For Analysis:
+### For Analysis
 Start your Jupyter notebook:
 
 ```
