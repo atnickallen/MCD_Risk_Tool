@@ -227,7 +227,7 @@ Now we will calculate volatility and historical time-to-revert for collateraliza
 
 Volatility: is calculated as the standard deviation of returns 
 
-Close to Close Volatility Method:
+### Close to Close Volatility Method:
 
 <img width="137" alt="Screen Shot 2019-08-02 at 1 16 45 PM" src="https://user-images.githubusercontent.com/39813026/62387138-d5648f00-b527-11e9-8ce7-e90d5e677ffc.png">
 
@@ -237,7 +237,7 @@ def close_to_close_volatility(close_ret, mean_ret):
 
 ```
 
-OHLC Volatility Estimation Method:
+### OHLC Volatility Estimation Method:
 
 <img width="309" alt="Screen Shot 2019-08-02 at 1 20 15 PM" src="https://user-images.githubusercontent.com/39813026/62387334-4efc7d00-b528-11e9-94cf-1b03e8a75e15.png">
 
@@ -248,6 +248,15 @@ def crypto_volatility(open, high, low, close, close_tm_):
         - (2*np.log(2)-1)*(np.log(close/open)**2)
 
 ```
+
+### CDP States:
+
+- `bite` = debt-tranche that has been liquidated
+- `wipe/shut` = debt-tranche that has been voluntarily closed by owner
+- `unsafe` = CDP is below 150% collateralization ratio
+- `safe` = CDP is not below 150% collateralization ratio
+- `open` = CDP is safe and is still open
+
 
 
 Once the ideal, reality, and consequences sections have been 
