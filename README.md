@@ -127,7 +127,9 @@ Data methodology is outlined in Risk API github repo
 
 There is no ‘master exchange’ to pull from so we pull from several BTI verified exchanges, as price is determined by supply and demand and wash trading is a real problem among cryptocurrency exchanges
 
-We pull data from 5 major exchanges to calculate an aggregate price index: `Coinbase`, `Bitfinex`, `Poloniex`, `another`, and `another`.
+We pull data from 5 major exchanges: `Coinbase`, `Bitfinex`, `Poloniex`, `another`, and `another` to calculate an aggregate price index.
+
+For example we can inspect the last 4 rows of the dataframe using the `tail()` method
 
 should illustrate what the expected environment would look like once the solution is implemented.
 - REALITY: This section is used to describe the current or “as is” state of the process or product. 
