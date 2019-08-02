@@ -231,6 +231,25 @@ Close to Close Volatility Method:
 
 <img width="137" alt="Screen Shot 2019-08-02 at 1 16 45 PM" src="https://user-images.githubusercontent.com/39813026/62387138-d5648f00-b527-11e9-8ce7-e90d5e677ffc.png">
 
+```
+def close_to_close_volatility(close_ret, mean_ret): 
+    return np.sqrt(np.sum((close_ret-mean_ret)**2)/390)
+
+```
+
+OHLC Volatility Estimation Method:
+
+<img width="309" alt="Screen Shot 2019-08-02 at 1 20 15 PM" src="https://user-images.githubusercontent.com/39813026/62387334-4efc7d00-b528-11e9-94cf-1b03e8a75e15.png">
+
+
+```
+def crypto_volatility(open, high, low, close, close_tm_): 
+    return np.log(open/close_tm1)**2 + 0.5*(np.log(high/low)**2) \
+        - (2*np.log(2)-1)*(np.log(close/open)**2)
+
+```
+
+
 Once the ideal, reality, and consequences sections have been 
 completed, and understood, it becomes easier to provide a solution for solving the problem.
 
