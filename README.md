@@ -215,11 +215,21 @@ ETH[['Adj Close','MA 10 days','MA 20 days','MA 50 days']].plot(legend=True)
 
 Moving average representation expresses any time series Ytas:
 
-![math1](https://user-images.githubusercontent.com/39813026/62380722-cbd32b00-b517-11e9-8d3e-feae84dabd54.png)
+<img width="143" alt="Screen Shot 2019-08-02 at 1 17 27 PM" src="https://user-images.githubusercontent.com/39813026/62387176-e8775f00-b527-11e9-8328-eec62b4acbc0.png">
 
 ETH output:
 
 <img width="418" alt="Screen Shot 2019-08-02 at 11 23 36 AM" src="https://user-images.githubusercontent.com/39813026/62380820-0dfc6c80-b518-11e9-891f-5c00d9270726.png">
+
+Once we have historical returns, we can gauge their relative dispersion with a measure called `variance`
+
+Now we will calculate volatility and historical time-to-revert for collateralization ratio
+
+Volatility: is calculated as the standard deviation of returns 
+
+Close to Close Volatility Method:
+
+<img width="137" alt="Screen Shot 2019-08-02 at 1 16 45 PM" src="https://user-images.githubusercontent.com/39813026/62387138-d5648f00-b527-11e9-8ce7-e90d5e677ffc.png">
 
 Once the ideal, reality, and consequences sections have been 
 completed, and understood, it becomes easier to provide a solution for solving the problem.
