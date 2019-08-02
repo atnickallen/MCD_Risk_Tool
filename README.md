@@ -47,8 +47,6 @@ The packages `pandas` and `numpy` will need to be installed in order for these r
 pipenv install pandas
 ```
 
-Then run:
-
 ```
 pipenv install numpy
 ```
@@ -92,7 +90,7 @@ If your browser doesn't automatically open, then go to:
 http://localhost:8888
 ```
 
-## 🎛 Running the Models
+## Running the Models
 Notebooks can be found in the `notebooks` folder
 
 ### MCD Risk Model 1:
