@@ -150,6 +150,8 @@ For example we can inspect the last 4 rows of the dataframe using the `tail()` m
 
 - Momentum metrics give us an indication of the direction of the price drift 
 
+### Two Separate Methods
+
 Define single collateral type:
 
 ```
