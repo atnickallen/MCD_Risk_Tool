@@ -19,8 +19,8 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
-- [Goal](#problem_statement)
+## 🗄 Table of Contents
+- [The Goal](#problem_statement)
 - [Setup](#idea)
 - [Downloading The Prerequisites](#limitations)
 - [Cloning The Repo](#future_scope)
@@ -34,7 +34,7 @@
 ## Goal of the Risk Tool: <a name = "Goal"></a>
 Goal of the tool is to display risk and allow users to double click on visually evaluating risk.
 
-## 🧐 Setup: <a name = "setup"></a>
+## 💽 Setup: <a name = "setup"></a>
 If you would like to install and use this tool on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
 
 ### Downloading The Prerequisites
