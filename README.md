@@ -36,7 +36,7 @@ Goal of the tool is to display risk and allow users to double click on visually 
 ## 💽 Setup: <a name = "setup"></a>
 If you would like to install and use this tool on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
 
-### Downloading The Prerequisites
+### Downloading The Prerequisites <a name = "pre"></a>
 
 The packages needed to run this tool: `pipenv`, `homebrew`, `python3`, `pandas`, and `numpy`.
 
