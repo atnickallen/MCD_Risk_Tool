@@ -102,8 +102,32 @@ mcd_risk_model_1.py
 ### Step 1:
 Before doing anything else this script imports the various dependencies that allow for the script to be run in python as well as creates a class for the initial variables that we need
 
+```
+code code code
+```
+
+And creating the class:
 
 
+```
+code code code
+```
+
+After, we look to call our data and will make two separate methods within our mcd_model_1 class, one for a single collateral type, and one for multiple collateral types
+
+Data is encapsulated in Risk RESTful API
+
+## Historical Data
+Collect trading history across all exchanges
+
+### Read in data
+Data methodology is outlined in Risk API github repo
+
+### Historical exchange data
+
+There is no ‘master exchange’ to pull from so we pull from several BTI verified exchanges, as price is determined by supply and demand and wash trading is a real problem among cryptocurrency exchanges
+
+We pull data from 5 major exchanges to calculate an aggregate price index: `Coinbase`, `Bitfinex`, `Poloniex`, `another`, and `another`.
 
 should illustrate what the expected environment would look like once the solution is implemented.
 - REALITY: This section is used to describe the current or “as is” state of the process or product. 
