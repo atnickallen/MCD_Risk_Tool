@@ -32,7 +32,7 @@
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgments)
 
-## Goal of Risk Tool: <a name = "Goal"></a>
+## Goal of the Risk Tool: <a name = "Goal"></a>
 Goal of the tool is to display risk and allow users to double click on visually evaluating risk.
 
 ## 🧐 Setup: <a name = "setup"></a>
