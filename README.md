@@ -70,7 +70,7 @@ cd mcd_risk_model
 ```
 
 ### Running the Model
-
+To reproduce results run the following commands:
 
 ```
 python3 mcd_risk_model_1.py
