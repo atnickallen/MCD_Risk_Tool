@@ -54,7 +54,7 @@ Clone the MCD Risk Model Repo:
 git clone https://github.com/madison1111/mcd_risk_model.git
 ```
 
-cd into the directory:
+Then cd into the directory:
 
 ```
 cd mcd_risk_model
