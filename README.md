@@ -51,7 +51,7 @@ pipenv install numpy
 ```
 
 
-### Cloning The Repo
+### Cloning The Repo <a name = "cloning"></a>
 
 Clone the MCD Risk Model Repo:
 
@@ -65,7 +65,7 @@ Then cd into the directory:
 cd mcd_risk_model
 ```
 
-### Loading the Models
+### Loading the Models <a name = "loading"></a>
 To reproduce results run the following commands:
 
 ```
@@ -76,7 +76,7 @@ python3 mcd_risk_model_1.py
 python3 mcd_risk_model_2.py
 ```
 
-### For Analysis
+### For Analysis <a name = "analysis"></a>
 Start your Jupyter notebook:
 
 ```
@@ -89,10 +89,10 @@ If your browser doesn't automatically open, then go to:
 http://localhost:8888
 ```
 
-## 🎛 Running the Models
+## 🎛 Running the Models <a name = "running"></a>
 Notebooks can be found in the `notebooks` folder
 
-### MCD Risk Model 1:
+### MCD Risk Model 1: <a name = "model1"></a>
 
 ```
 mcd_risk_model_1.py
