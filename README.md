@@ -20,8 +20,8 @@
 </p>
 
 ## 🗄 Table of Contents
-- [The Goal](#problem_statement)
-- [Setup](#idea)
+- [The Goal](#Goal)
+- [Setup](#setup)
 - [Downloading The Prerequisites](#pre)
 - [Cloning The Repo](#cloning)
 - [Loading the Models](#loading)
