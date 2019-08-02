@@ -109,7 +109,7 @@ import pandas as pd
 import time
 ```
 
-And creating the class:
+And create the class:
 
 
 ```
