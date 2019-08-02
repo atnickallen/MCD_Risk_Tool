@@ -33,7 +33,11 @@
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Setup: <a name = "setup"></a>
-If you would like to install on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
+If you would like to install and use this tool on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
+
+### Prerequisites
+
+The packages needed to run this tool: `pipenv`, `homebrew`, `python3`, `pandas`, and `numpy`.
 
 The packages `pandas` and `numpy` will need to be installed in order for these repositories to work. If you do not have them installed, run these commands in your terminal:
 
