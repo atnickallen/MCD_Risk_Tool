@@ -33,11 +33,20 @@
 - [Acknowledgments](#acknowledgments)
 
 ## 🧐 Setup: <a name = "setup"></a>
-It is useful to design and follow a specific format when writing a problem statement. While there are several options
-for doing this, the following is a simple and straightforward template often used in Business Analysis to maintain
-focus on defining the problem.
+If you would like to install on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
 
-- IDEAL: This section is used to describe the desired or “to be” state of the process or product. At large, this section 
+The packages `pandas` and `numpy` will need to be installed in order for these repositories to work, if you do not have them installed run:
+
+```
+pipenv install pandas
+```
+
+Then run:
+
+```
+pipenv install numpy
+```
+
 should illustrate what the expected environment would look like once the solution is implemented.
 - REALITY: This section is used to describe the current or “as is” state of the process or product. 
 - CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
