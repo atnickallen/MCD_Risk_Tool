@@ -69,7 +69,7 @@ Then cd into the directory:
 cd mcd_risk_model
 ```
 
-### Running the Model
+### Loading the Models
 To reproduce results run the following commands:
 
 ```
@@ -92,6 +92,9 @@ If your browser doesn't automatically open, then go to:
 ```
 http://localhost:8888
 ```
+
+### Running the Models
+Notebooks can be found in the `notebooks` folder
 
 
 should illustrate what the expected environment would look like once the solution is implemented.
