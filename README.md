@@ -150,17 +150,6 @@ For example we can inspect the last 4 rows of the dataframe using the `tail()` m
 
 - Momentum metrics give us an indication of the direction of the price drift 
 
-
-should illustrate what the expected environment would look like once the solution is implemented.
-- REALITY: This section is used to describe the current or “as is” state of the process or product. 
-- CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
-This includes costs associated with loss of money, time, productivity, competitive advantage, and so forth.
-
-Following this format will result in a workable document that can be used to understand the problem and elicit
-requirements that will lead to a winning solution. 
-
-## 💡 Idea / Solution <a name = "idea"></a>
-
 Define single collateral type:
 
 ```
