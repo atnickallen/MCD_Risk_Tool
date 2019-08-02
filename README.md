@@ -47,6 +47,21 @@ Then run:
 pipenv install numpy
 ```
 
+
+Clone the MCD Risk Model Repo:
+
+```
+git clone https://github.com/madison1111/mcd_risk_model.git
+```
+
+cd into the directory:
+
+```
+cd mcd_risk_model
+```
+
+
+
 should illustrate what the expected environment would look like once the solution is implemented.
 - REALITY: This section is used to describe the current or “as is” state of the process or product. 
 - CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
