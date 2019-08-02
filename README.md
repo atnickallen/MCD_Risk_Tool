@@ -137,6 +137,8 @@ We pull data from 5 major exchanges: `Coinbase`, `Bitfinex`, `Poloniex`, `anothe
 
 For example we can inspect the last 4 rows of the dataframe using the `tail()` method
 
+<img width="483" alt="Screen Shot 2019-08-02 at 11 00 15 AM" src="https://user-images.githubusercontent.com/39813026/62380064-5d419d80-b516-11e9-8f09-dee21f5f825f.png">
+
 should illustrate what the expected environment would look like once the solution is implemented.
 - REALITY: This section is used to describe the current or “as is” state of the process or product. 
 - CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
