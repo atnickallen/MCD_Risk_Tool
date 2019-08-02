@@ -35,7 +35,7 @@
 ## 🧐 Setup: <a name = "setup"></a>
 If you would like to install on your own machine make sure you have `pipenv` installed. If you need to install follow [these simple instructions](https://github.com/pypa/pipenv#installation).
 
-The packages `pandas` and `numpy` will need to be installed in order for these repositories to work, if you do not have them installed run:
+The packages `pandas` and `numpy` will need to be installed in order for these repositories to work. If you do not have them installed, run these commands in your terminal:
 
 ```
 pipenv install pandas
