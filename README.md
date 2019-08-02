@@ -194,6 +194,29 @@ def get_multiple_collateral(self, symbols, weights):
 
 ```
 
+Checking out momentum:
+
+```
+#Moving averages are a great way to determine the momentum of the cryptocurrency
+ma_days = [10,20,50]
+for ma in ma_days:
+    column_name = "MA %s days" %(str(ma))
+    ETH[column_name] = ETH['Adj Close'].rolling(window=ma,center=False).mean()
+ETH[['Adj Close','MA 10 days','MA 20 days','MA 50 days']].plot(legend=True)
+
+```
+
+### Moving average representation:
+
+
+
+Moving average representation expresses any time series Ytas:
+
+![math1](https://user-images.githubusercontent.com/39813026/62380722-cbd32b00-b517-11e9-8d3e-feae84dabd54.png)
+
+ETH output:
+
+<img width="418" alt="Screen Shot 2019-08-02 at 11 23 36 AM" src="https://user-images.githubusercontent.com/39813026/62380820-0dfc6c80-b518-11e9-891f-5c00d9270726.png">
 
 Once the ideal, reality, and consequences sections have been 
 completed, and understood, it becomes easier to provide a solution for solving the problem.
