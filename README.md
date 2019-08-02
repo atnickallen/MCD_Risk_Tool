@@ -93,8 +93,19 @@ If your browser doesn't automatically open, then go to:
 http://localhost:8888
 ```
 
-### Running the Models
+## Running the Models
 Notebooks can be found in the `notebooks` folder
+
+### MCD Risk Model 1:
+
+```
+mcd_risk_model_1.py
+```
+
+### Step 1:
+Before doing anything else this script imports the various dependencies that allow for the script to be run in python as well as creates a class for the initial variables that we need
+
+
 
 
 should illustrate what the expected environment would look like once the solution is implemented.
