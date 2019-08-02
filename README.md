@@ -80,7 +80,18 @@ python3 mcd_risk_model_1.py
 python3 mcd_risk_model_2.py
 ```
 
+### For Analysis:
+Start your Jupyter notebook:
 
+```
+jupyter notebook
+```
+
+If your browser doesn't automatically open, then go to:
+
+```
+http://localhost:8888
+```
 
 
 should illustrate what the expected environment would look like once the solution is implemented.
