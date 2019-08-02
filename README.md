@@ -197,7 +197,7 @@ def get_multiple_collateral(self, symbols, weights):
 
 ```
 
-Checking out momentum:
+### Checking out momentum:
 
 ```
 #Moving averages are a great way to determine the momentum of the cryptocurrency
@@ -376,67 +376,141 @@ Analyzing CDP behavior and jump diffusion
 
 To tune our model we are going to want to input: `volatility`, `probability_of_jump`, and `mean_jump_size`.
 
+In jump diffusion the idea is that price movements underlie sudden changes:
 
+<img width="180" alt="Screen Shot 2019-08-02 at 1 49 00 PM" src="https://user-images.githubusercontent.com/39813026/62388833-5a51a780-b52c-11e9-99ba-ce19cacf5c06.png">
 
-Once the ideal, reality, and consequences sections have been 
-completed, and understood, it becomes easier to provide a solution for solving the problem.
+Jump diffusion will consider downtrends and captures the true picture of the collateral behavior:
 
-## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
-- What are the dependencies of your project?
-- Describe each limitation in detailed but concise terms
-- Explain why each limitation exists
-- Provide the reasons why each limitation could not be overcome using the method(s) chosen to acquire.
-- Assess the impact of each limitation in relation to the overall findings and conclusions of your project, and if 
-appropriate, describe how these limitations could point to the need for further research.
+<img width="445" alt="Screen Shot 2019-08-02 at 1 50 25 PM" src="https://user-images.githubusercontent.com/39813026/62388911-84a36500-b52c-11e9-9859-dff0578d60b6.png">
 
-## 🚀 Future Scope <a name = "future_scope"></a>
-Write about what you could not develop during the course of the Hackathon; and about what your project can achieve 
-in the future.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-These instructions will get you a copy of the project up and running on your local machine for development 
-and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them.
+We can calculate <img width="56" alt="Screen Shot 2019-08-02 at 1 51 22 PM" src="https://user-images.githubusercontent.com/39813026/62388976-a4d32400-b52c-11e9-8c62-a6defe1ae942.png"> by:
 
 ```
-Give examples
+sigma*np.randn()+mu
 ```
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+We can then calculate the jump size J by:
 
 ```
-Give the example
+def jump(probability, mean_size, volatility):
+    jump_size = mean_size + volatility*np.random.randn()
+    return decision(probability)*jump_size
 ```
 
-And repeat
+After, we are going to want to map the instance of the event under consideration of a probability using:
+
 
 ```
-until finished
+def decision_collateral(probability):
+   return int(np.random.random() < probability)
 ```
 
-## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
+Taking the input data:
+- `date`
+- `collateral_type`
+- `last_price`
+- `volatility`
+- `simulated_time_window`
+- `Time_window`
 
-## ⛏️ Built With <a name = "tech_stack"></a>
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+
+
+
+```
+results = pd.DataFrame()
+
+simulation = 0
+while (simulation < number_simulations):
+    prices = []
+    days = 0 
+    prices.append(last_price) 
+    time_step = 1
+    while (days < predicted_days):
+        drift = (mean_return - volatility**2/2)*time_step
+        shock = volatility * np.random.normal() * time_step**0.5
+        c_jump = jump(probability, mu, sigma)
+        price = prices[days] * np.exp(drift+shock)
+        price = price + c_jump
+        prices.append(price)
+        days = days + 1
+    if(prices[-1] > 0):
+        results[str(simulation)] = pd.Series(prices).values 
+    simulation = simulation + 1
+```
+
+
+### How we model GBM and Collateralization Ratio
+
+
+We take this GBM with jump diffusion and the inertia reversion function to fluctuating collateralization ratio come in at ETH price path based on GBM with jump diffusion
+
+ETH price path over time and second pass reads each day movement of ETH prices, ETH price moved x% and I am going to change collateralization ratio by y% and y is a function of x and the previous collateralization ratio and time 
+
+Evaluate liquidity by analyzing:
+- % of day's volume
+- intraday volume curve
+- cumulative intraday volume curve, etc.
+
+Traditionally, liquidity is highest as we approach the close and second highest at open. 
+
+### Parameters for ‘expected amount of loss’:
+crashes that are atypical;outright collateralization or significant enough sale through liquidation 
+
+The Value at Risk (VaR) for coverage  is the maximum amount we could expect to lose with likelihood <img width="69" alt="Screen Shot 2019-08-02 at 1 59 23 PM" src="https://user-images.githubusercontent.com/39813026/62389434-d1d40680-b52d-11e9-860a-a9d5d807eeed.png">
+
+- VaR is very similar to confidence intervals
+- Conditional Value at Risk takes into account the shape of the returns distribution 
+
+### Defining CVaR:
+
+```
+def cvar(invested, returns, weights, alpha=0.95, lookback=500):
+    var = value_at_risk(invested, returns, weights, alpha, lookback=lookback)
+    returns = returns.fillna(0.0)
+    portfolio_returns = returns.iloc[-lookback:].dot(weights)
+    
+    # Get back to a return
+    var_pct_loss = var / invested
+    
+    return invested * np.nanmean(portfolio_returns[portfolio_returns < var_pct_loss])
+```
+
+- CVaR captures the moments of the distribution; if the tails have more mass CVaR will capture this 
+- Following calculating CVaR check for convergence
+
+### Tail Risk:
+
+- CVaR will take care of tail risk or fat tailedness 
+- Tail risk: autoregressive processes tend to have more extreme values than data taken from a normal distribution and this is  because the value at each time point is influenced by recent values
+- Fat tail distribution: if the series randomly jumps up, it is more likely to stay up than a non-autoregressive series, the extremes on the pdf will be fatter than the normal distribution 
+
+
+```
+def calc_unadjusted_interval(X):
+    T = len(X)
+    mu = np.mean(X)
+    sigma = np.std(X)
+    lower = mu - 1.96 * (sigma/np.sqrt(T))
+    upper = mu + 1.96 * (sigma/np.sqrt(T))
+    return lower, upper
+```
+
+## Statistical Rigor
+Checking out visualizations of your data is not enough; we need a stronger degree of statistical rigor ie confidence intervals, pacf, etc. 
+
+## Terms:
+
+- `Volatility` is calculated as the standard deviation of returns 
+- `Slippage` is when the price 'slips' before the trade is fully executed, leading to the fill price being different from the price at the time of the order. Slippage is where our backtester calculates the realistic impact that your orders have on the execution price we receive. 
+ - The attributes that have the most influence on slippage are:
+ - `Volatility`
+ - `Liquidity`
+ - `Relative order size`
+ - `Bid / Ask spread`
+
+
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) 
-who participated in this project.
-
-## 🎉 Acknowledgments <a name = "acknowledgments"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- [Madison Piercy](https://github.com/madison1111/)
+- [Nick Allen](https://github.com/atnickallen/)
