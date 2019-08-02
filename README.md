@@ -90,7 +90,7 @@ If your browser doesn't automatically open, then go to:
 http://localhost:8888
 ```
 
-## Running the Models
+## 🎛Running the Models
 Notebooks can be found in the `notebooks` folder
 
 ### MCD Risk Model 1:
