@@ -2,7 +2,7 @@
   <a href="" rel="noopener">
  <img src="https://github.com/atnickallen/MCD_Doc/blob/master/Maker%20-%20back%20end%20risk%20tool.png"></a>
 </p>
-<h3 align="center">Project Title</h3>
+<h3 align="center">MakerDAO MCD Risk Tool</h3>
 
 <div align="center">
 
