@@ -285,12 +285,96 @@ Brownian motion models the random behavior of our collateral type over time
 logarithmic_return = np.log(ETH.close)-np.log(close.shift(1))
 mean_return = np.mean(returns)
 volatility = returns.std()
-
 ```
 
 GBM is composed of `drift` and `shock`
 
 <img width="208" alt="Screen Shot 2019-08-02 at 1 31 36 PM" src="https://user-images.githubusercontent.com/39813026/62387915-f4fcb700-b529-11e9-9064-231046efa2e5.png">
+
+Where:
+
+<img width="335" alt="Screen Shot 2019-08-02 at 1 34 35 PM" src="https://user-images.githubusercontent.com/39813026/62388175-9f74da00-b52a-11e9-9900-7e3b102412a9.png">
+
+`drift` <img width="43" alt="Screen Shot 2019-08-02 at 1 38 48 PM" src="https://user-images.githubusercontent.com/39813026/62388299-ed89dd80-b52a-11e9-8c7e-3b63ea97f475.png"> a long term trend in the positive or negative direction; derived from collaterals historical performance
+`shock` <img width="59" alt="Screen Shot 2019-08-02 at 1 40 32 PM" src="https://user-images.githubusercontent.com/39813026/62388363-2033d600-b52b-11e9-9cf9-1649ca9616a5.png"> added or subtracted to the drift; function of the collaterals standard deviation 
+
+For each timestep, our model assumes the price will ‘drift’ up by the expected return 
+
+The drift will be ‘shocked’ (+/-) by a random shock and the random shock will be the standard deviation multiplied by a random number; this is a way of scaling the standard deviation 
+
+Pseudocode for GBM of ETH:
+
+<img width="307" alt="Screen Shot 2019-08-02 at 1 42 29 PM" src="https://user-images.githubusercontent.com/39813026/62388469-6721cb80-b52b-11e9-97b8-aba85f39d6f1.png">
+
+### GBM without jump diffusion parameters:
+
+`Xo`     initial collateral type price
+`mu`     returns (drift coefficient)
+`sigma`  volatility (diffusion coefficient)
+`W`      brownian motion
+`T`      time period
+`N`      number of increments
+
+
+```
+def GBM(Xo, mu, sigma, W, T, N):    
+    t = np.linspace(0.,1.,N+1)
+    X = []
+    X.append(Xo)
+    for i in xrange(1,int(N+1)):
+        drift = (mu - 0.5 * sigma**2) * t[i]
+        diffusion = sigma * W[i-1]
+        X_temp = Xo*np.exp(drift + diffusion)
+        X.append(X_temp)
+    return X, t
+```
+
+### To capture drift and diffusion:
+
+```
+def daily_return(adj_close):
+    returns = []
+    for i in xrange(0, len(adj_close)-1):
+        today = adj_close[i+1]
+        yesterday = adj_close[i]
+        daily_return = (today - yesterday)/yesterday
+        returns.append(daily_return)
+    return returns
+
+returns = daily_return(adj_close)
+```
+
+### We use these simulations and visualize them:
+
+
+```
+while (simulation < number_simulations):
+    #list for each new simulation 
+    prices = [] 
+    #reset the counter 
+    days = 0 
+    #input initial price 
+    prices.append(last_price) 
+    time_step = 1
+
+    while (days < predicted_days):
+        drift = (mean_return - volatility**2/2)*time_step
+        shock = volatility * np.random.normal() * time_step**0.5
+        price = prices[days] * np.exp(drift+shock)
+        prices.append(price) 
+        #increment days counter 
+        days = days + 1
+    
+    results[str(simulation)] = pd.Series(prices).values
+    #increment simulation counter 
+    simulation = simulation + 1
+```
+
+
+## Behavioral Data 
+Analyzing CDP behavior and jump diffusion 
+
+To tune our model we are going to want to input: `volatility`, `probability_of_jump`, and `mean_jump_size`.
 
 
 
