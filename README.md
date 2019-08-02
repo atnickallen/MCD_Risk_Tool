@@ -103,14 +103,20 @@ mcd_risk_model_1.py
 Before doing anything else this script imports the various dependencies that allow for the script to be run in python as well as creates a class for the initial variables that we need
 
 ```
-code code code
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import time
 ```
 
 And creating the class:
 
 
 ```
-code code code
+class mcd_model_1:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
 ```
 
 After, we look to call our data and will make two separate methods within our mcd_model_1 class, one for a single collateral type, and one for multiple collateral types
