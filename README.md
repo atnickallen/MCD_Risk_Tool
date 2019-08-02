@@ -146,7 +146,52 @@ Following this format will result in a workable document that can be used to und
 requirements that will lead to a winning solution. 
 
 ## 💡 Idea / Solution <a name = "idea"></a>
-This section is used to describe potential solutions. 
+
+Define single collateral type:
+
+```
+def get_single_collateral(self, symbol):
+        #dates
+        start = self.start 
+        end = self.end 
+        
+        prices = ETH['Close']
+        returns = prices.pct_change()
+        
+        self.returns = returns
+        self.prices = prices
+```
+
+Define multiple collateral types:
+
+```
+def get_multiple_collateral(self, symbols, weights):
+        start = self.start
+        end = self.end
+        
+        #Get exchange price data
+        df = ETH['Close']
+       
+        #percent Change
+        returns = df.pct_change()
+        returns += 1
+        
+        #define allocation of each asset 
+        portfolio_value = returns * weights
+        portfolio_value['Portfolio Value'] = portfolio_value.sum(axis=1)
+        
+        #Portfolio prices
+        prices = portfolio_value['Portfolio Value']
+        
+        #portfolio returns 
+        returns = portfolio_value['Portfolio Value'].pct_change()
+        returns = returns.replace([np.inf, -np.inf], np.nan)
+                
+        self.returns = returns
+        self.prices = prices
+
+```
+
 
 Once the ideal, reality, and consequences sections have been 
 completed, and understood, it becomes easier to provide a solution for solving the problem.
