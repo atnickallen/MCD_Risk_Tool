@@ -257,6 +257,41 @@ def crypto_volatility(open, high, low, close, close_tm_):
 - `safe` = CDP is not below 150% collateralization ratio
 - `open` = CDP is safe and is still open
 
+The time to revert for collateralization ratio looks at the CDP states and every state in the sequence has a timestamp (number of seconds the CDP stayed in that state)
+
+1. Calculate Transition state (infinitesimal generator matrix or intensity matrix) 
+2. Look at the sequence distribution
+3. Answer: What fraction of all dai-time is spent in state ‘m’ before moving to state ‘k’?
+4. A matrix of the number of transition states are produced 
+5. The next component of the code multiplies 2 matrices to get ‘draw_time’ in seconds 
+6. The next component categories into safe and unsafe 
+7. A final matrix is produced 
+
+```
+sequesnces_with_next_state = utils.dataframe_to_sequences_with_end_state(df) 
+time_spent_matrix = utils.time_spent_before_state_change_distribution(sequence_with_next_state)
+time_spent_matrix
+
+```
+
+### Geometric Brownian Motion data: Volatility modeled in GBM function
+
+Geometric Brownian Motion assumes that a constant drift is accompanied by random shocks and the period returns are normally distributed under GBM, the consequent multi-period price levels are lognormally distributed 
+
+Brownian motion models the random behavior of our collateral type over time 
+
+
+```
+logarithmic_return = np.log(ETH.close)-np.log(close.shift(1))
+mean_return = np.mean(returns)
+volatility = returns.std()
+
+```
+
+GBM is composed of `drift` and `shock`
+
+<img width="208" alt="Screen Shot 2019-08-02 at 1 31 36 PM" src="https://user-images.githubusercontent.com/39813026/62387915-f4fcb700-b529-11e9-9064-231046efa2e5.png">
+
 
 
 Once the ideal, reality, and consequences sections have been 
