@@ -27,7 +27,7 @@
 - [Loading the Models](#loading)
 - [For Analysis](#analysis)
 - [Running the Models](#running)
-- [MCD Risk Model 1](model1)
+- [MCD Risk Model 1](#model1)
 - [Authors](#authors)
 
 ## Goal of the Risk Tool: <a name = "Goal"></a>
