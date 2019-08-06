@@ -131,7 +131,7 @@ Data methodology is outlined in Risk API github repo
 
 There is no ‘master exchange’ to pull from so we pull from several BTI verified exchanges, as price is determined by supply and demand and wash trading is a real problem among cryptocurrency exchanges
 
-We pull data from 5 major exchanges: `Coinbase`, `Bitfinex`, `Poloniex`, `another`, and `another` to calculate an aggregate price index.
+We pull data from 6 major exchanges: `Coinbase`, `Bitfinex`, `Poloniex`, `Bitstamp`, and `Binance` and `Kraken` to calculate an aggregate price index.
 
 For example we can inspect the last 4 rows of the dataframe using the `tail()` method
 
@@ -211,7 +211,7 @@ ETH[['Adj Close','MA 10 days','MA 20 days','MA 50 days']].plot(legend=True)
 
 
 
-Moving average representation expresses any time series Ytas:
+Moving average representation expresses any time series Yt as:
 
 <img width="143" alt="Screen Shot 2019-08-02 at 1 17 27 PM" src="https://user-images.githubusercontent.com/39813026/62387176-e8775f00-b527-11e9-8328-eec62b4acbc0.png">
 
