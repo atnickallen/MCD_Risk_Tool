@@ -18,7 +18,7 @@
     <br> 
 </p>
 
-*Code will be availible once Readme is reviewed*
+*Code will be availible once Readme has been reviewed*
 
 ## 🗄 Table of Contents
 - [The Goal](#Goal)
