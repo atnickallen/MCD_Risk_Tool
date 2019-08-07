@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="https://github.com/atnickallen/MCD_Doc/blob/master/mcd%20backend%20-%20tool3.png"></a>
+ <img src="https://user-images.githubusercontent.com/39813026/62629404-116a6c00-b8fb-11e9-8a95-3f48f38045ea.png"></a>
 </p>
 <h3 align="center">MakerDAO MCD Risk Tool</h3>
 
